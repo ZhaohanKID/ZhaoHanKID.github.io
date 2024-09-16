@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
-  <link rel="canonical" href="http://example.com/index.html">
+  <title>搜索 | Hexo</title>
+  <link rel="canonical" href="http://example.com/search/index.html">
   <meta name="author" content="John Doe" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -18,8 +18,8 @@
     <meta name="keywords" content="" />
   
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:title" content="搜索">
+<meta property="og:url" content="http://example.com/search/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -129,164 +129,136 @@
 
         
 
-            <!-- Breadcrumb for tag & category page -->
+            <style>
+  #kr-search-notice.alert {
+    transition: 0.3s;
+  }
 
+  #kr-search-results {
+    margin-top: 20px;
+  }
 
+  .kr-search-result {
+    margin: 20px;
+  }
 
-    
-    
-        <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
+  .kratos-entry-content m {
+    color: #333;
+    background-color: yellow;
+  }
+
+  #search-input {
+    appearance: none;
+    -webkit-appearance: none;
+    border-color: #dbdbdb;
+    border-radius: 4px 0 0 4px;
+
+    &:hover {
+      border-color: #b5b5b5;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .input-group .form-input.input-lg {
+    display: inline-flex;
+    box-shadow: none;
+    flex: auto;
+    justify-content: flex-start;
+    padding: 0 8px;
+    font-size: 15px;
+    max-width: 100%;
+    border: 1px solid transparent;
+  }
+
+  .btn.btn-primary {
+    border: transparent;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .search-demo-tags a {
+    margin: 5px 10px;
+  }
+
+  #search-input {
+    color: var(--kr-theme-text);
+    background-color: var(--kr-theme-card-bg);
+
+    &:active,
+    &:focus {
+      border-color: var(--kr-theme-link-hover);
+      box-shadow: 0 0 0 0.125em rga(var(--kr-theme-link-hover), 0.25);
+    }
+  }
+</style>
+
+<div class="kratos-hentry kratos-page-inner clearfix">
+    <header class="kratos-page-header">
+        <h1 class="kratos-page-title text-center" itemprop="name headline">搜索</h1>
+    </header>
+    <div class="kratos-page-content kr-search-input">
+        <form class="input-group" onsubmit="return inpSearch();">
+            <input class="form-input input-lg" id="search-input" maxlength="80" name="s" placeholder="有什么想找找看的呢o(*￣▽￣*)ブ" required type="search">
+            <button class="btn btn-primary" type="submit">找一找~</button>
+        </form>
+    </div>
+</div>
+
+<div class="alert alert-info" id="kr-search-notice">
+    这里是 Hexo 的搜索引擎~
+</div>
+
+<div id="kr-search-results">
+    <div class="kratos-hentry kratos-page-inner clearfix">
+        <div class="kratos-page-content kr-search-result">
+            <p>搜索多个关键词时请用空格分割，例如「利用GitHub搭建自己的博客」这样；</p>
+            <p>您也可以使用这些标签碰碰运气哦~</p>
+            <p class="search-demo-tags">
+                <a href="/tags/%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" style="font-size: 18px; color: #b2b7be">利用GitHub搭建自己的博客</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<template id="kr-search-result-template">
+  <article class="kratos-hentry clearfix">
     <div class="kratos-entry-border clearfix">
-        
-        <div class="kratos-entry-post-main">
-            
-            
-                <div class="kratos-entry-thumb">
-                    <a href="/2024/09/16/GitHub%E5%8D%9A%E5%AE%A2-Typora%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%EF%BC%9F/">
-                        <img class="kratos-entry-thumb-img" src="/images/default.webp" alt="/GitHub%E5%8D%9A%E5%AE%A2+Typora%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%EF%BC%9F">
-                    </a>
-                </div>
-            
-            <div class="kratos-entry-post-inner">
-                <header class="kratos-entry-header">
-                        
-                    <h2 class="kratos-entry-title"><a href="/2024/09/16/GitHub%E5%8D%9A%E5%AE%A2-Typora%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%EF%BC%9F/" itemprop="mainEntityOfPage"><span itemprop="name headline">GitHub博客+Typora工具如何上传图片？</span></a>
-                </header>
-                <div class="kratos-entry-content">
-                    <p itemProp="description">
-                        
-                            
-参考文章：【Hexo】GitHub+Typora写博客+图片上传_hexo 上传图片-CSDN博客
-感谢大佬的文章！！😀
-
-                        
-                    </p>
-                </div>
+        <div class="kratos-entry-post-inner kr-search-result">
+            <header class="kratos-entry-header">
+                $CATEGORY
+                <h2 class="kratos-entry-title"><a href="$LINK">$TITLE</a></h2>
+            </header>
+            <div class="kratos-entry-content">
+                <p>...$CONTENT...</p>
             </div>
         </div>
-        <footer class="kratos-entry-post-meta">
+        <div class="kratos-entry-post-meta">
             <span class="pull-left">
-                <time datetime="2024-09-16T04:55:06.000Z" itemprop="datePublished">
-                    <a><i class="fa fa-calendar"></i> 2024-09-16</a>
-                </time>
-                <a>
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="tag">利用GitHub搭建自己的博客</a>
-                    
-                </a>
-                
-                
+                <a><i class="fa fa-calendar"></i></a><a>$DATE</a>
+                $TAGS
             </span>
-            <span class="pull-right">
-                <a class="read-more" href="/2024/09/16/GitHub%E5%8D%9A%E5%AE%A2-Typora%E5%B7%A5%E5%85%B7%E5%A6%82%E4%BD%95%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%EF%BC%9F/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-            </span>
-        </footer>
-    </div>
-</article>
-    
-
-    
-    
-        <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
-    <div class="kratos-entry-border clearfix">
-        
-        <div class="kratos-entry-post-main">
-            
-            
-                <div class="kratos-entry-thumb">
-                    <a href="/2024/09/16/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E3%80%90%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E3%80%91/">
-                        <img class="kratos-entry-thumb-img" src="/images/default.webp" alt="/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E3%80%90%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E3%80%91">
-                    </a>
-                </div>
-            
-            <div class="kratos-entry-post-inner">
-                <header class="kratos-entry-header">
-                        
-                    <h2 class="kratos-entry-title"><a href="/2024/09/16/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E3%80%90%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E3%80%91/" itemprop="mainEntityOfPage"><span itemprop="name headline">如何利用GitHub搭建自己的博客【小白的第一篇博客】</span></a>
-                </header>
-                <div class="kratos-entry-content">
-                    <p itemProp="description">
-                        
-                            hi，大家好，我是小白，这是小白的第一篇博客！<br>博客名称是：如何利用GitHub搭建自己的博客<br>我是根据知乎文章的步骤搭建的：【保姆级】利用Github搭建自己的个人博客，看完就会 - 知乎 (zhihu.com)<br>非常详细！感谢大佬！！😀<br>下面记录一下我在这个过程中遇到的错误吧。
-                        
-                    </p>
-                </div>
-            </div>
         </div>
-        <footer class="kratos-entry-post-meta">
-            <span class="pull-left">
-                <time datetime="2024-09-16T04:19:30.000Z" itemprop="datePublished">
-                    <a><i class="fa fa-calendar"></i> 2024-09-16</a>
-                </time>
-                <a>
-                    
-                        <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/" rel="tag">利用GitHub搭建自己的博客</a>
-                    
-                </a>
-                
-                
-            </span>
-            <span class="pull-right">
-                <a class="read-more" href="/2024/09/16/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8GitHub%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E3%80%90%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E3%80%91/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-            </span>
-        </footer>
     </div>
 </article>
-    
+</template>
 
-    
-    
-        <article class="kratos-hentry clearfix" itemscope itemtype="https://schema.org/Article">
-    <div class="kratos-entry-border clearfix">
-        
-        <div class="kratos-entry-post-main">
-            
-            
-                <div class="kratos-entry-thumb">
-                    <a href="/2024/09/16/hello-world/">
-                        <img class="kratos-entry-thumb-img" src="/images/default.webp" alt="/Hello%20World">
-                    </a>
-                </div>
-            
-            <div class="kratos-entry-post-inner">
-                <header class="kratos-entry-header">
-                        
-                    <h2 class="kratos-entry-title"><a href="/2024/09/16/hello-world/" itemprop="mainEntityOfPage"><span itemprop="name headline">Hello World</span></a>
-                </header>
-                <div class="kratos-entry-content">
-                    <p itemProp="description">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-                        
-                    </p>
-                </div>
-            </div>
-        </div>
-        <footer class="kratos-entry-post-meta">
-            <span class="pull-left">
-                <time datetime="2024-09-16T03:58:28.352Z" itemprop="datePublished">
-                    <a><i class="fa fa-calendar"></i> 2024-09-16</a>
-                </time>
-                <a>
-                    
-                </a>
-                
-                
-            </span>
-            <span class="pull-right">
-                <a class="read-more" href="/2024/09/16/hello-world/" title="阅读全文">阅读全文<i class="fa fa-chevron-circle-right"></i></a>
-            </span>
-        </footer>
-    </div>
-</article>
-    
+<template id="kr-search-tag-begin-template">
+  <a><i class="fa fa-tags"></i></a>
+</template>
+
+<template id="kr-search-tag-template">
+  <a class="tag-link" href="$LINK" rel="tag">$TAG</a>
+</template>
+
+<template id="kr-search-category-template">
+  <a class="label-link" href="$LINK">$CATEGORY</a>
+</template>
 
 
-
-
-
+  <script>window.searchDataFile = "/search-index.json";</script>
+  <script defer src="/js/kr-search.min.js"></script>
 
 
 
